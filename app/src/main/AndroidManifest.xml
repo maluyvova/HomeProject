@@ -20,7 +20,7 @@
         </activity>
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="9ebdec9f376f761f3a239447a0baa207a45c84bb" />
+            android:value="0334bc107ad112c9437b35e5f05ef9b31869b2f2" />
         <activity android:name=".SearchResultActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

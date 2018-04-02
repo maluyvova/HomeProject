@@ -9,8 +9,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.support.test.espresso.IdlingResource
 import android.support.test.espresso.idling.CountingIdlingResource
-import com.crashlytics.android.Crashlytics;
-import io.fabric.sdk.android.Fabric;
+import com.crashlytics.android.Crashlytics
+import io.fabric.sdk.android.Fabric
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
