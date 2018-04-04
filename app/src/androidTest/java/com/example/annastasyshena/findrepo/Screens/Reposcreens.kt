@@ -20,8 +20,8 @@ class Reposcreens:WebScreen() {
                 inAdapterView(ViewMatchers.withId(R.id.repoListView)).
                 atPosition(number).onChildView(ViewMatchers.withId(R.id.linearLayout)).
                 onChildView(ViewMatchers.withId(R.id.repoTextView))
-        return text
-    }
+    return text
+}
 
     fun clickOnTextInListView(number:Int){
         textInListView(number).perform(ViewActions.click())

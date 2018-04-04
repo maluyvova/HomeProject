@@ -29,7 +29,4 @@ class MainScreens:Settings() {
         viewButton.perform(ViewActions.click())
         return Reposcreens()
     }
-
-
-
 }
