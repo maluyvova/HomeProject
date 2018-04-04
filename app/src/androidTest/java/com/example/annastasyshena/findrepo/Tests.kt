@@ -26,7 +26,7 @@ import org.junit.Assert
 /**
  * Created by maluy on 3/23/18.
  */
-class Tests:Settings(){
+open class Tests:WebScreen(){
 
 
     @Rule @JvmField
@@ -34,21 +34,22 @@ class Tests:Settings(){
 
     @Test
     fun searchForFirstField() {
-       MainScreens().sendTextToFirstField("some")
+        MainScreens().sendTextToFirstField("some")
        val repoScreen=MainScreens().clickOnSearchButton()
-        uiDevice.findObject(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/linearLayout")).waitForExists(wait)
+        repoScreen.waitUntilListInAView()
         repoScreen.clickOnTextInListView(1)
         val webScreen=WebScreen()
-        val urlBar= uiDevice.findObject(UiSelector().resourceId("com.android.chrome:id/url_bar")).text
-        Assert.assertTrue(urlBar.toLowerCase().contains("some"))
+        webScreen.waitForTextInUrlBar(texts)
+       val url= webScreen.getUrlText()
+        Assert.assertTrue(url.toLowerCase().contains("some"))
     }
     @Test
     fun searchForSecondField(){
         MainScreens().sendTextToSecondField("jack")
         val repoScreen=MainScreens().clickOnViewButton()
-        uiDevice.findObject(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/linearLayout")).waitForExists(wait)
         repoScreen.clickOnTextInListView(0)
         val webScreen=WebScreen()
+        webScreen.waitForTextInUrlBar(texts)
         val urlBar= uiDevice.findObject(UiSelector().resourceId("com.android.chrome:id/url_bar")).text
         Assert.assertTrue(urlBar.toLowerCase().contains("jack"))
     }
@@ -56,27 +57,13 @@ class Tests:Settings(){
     fun searchForNotExistingUser(){
         MainScreens().sendTextToSecondField("vladBurianAAAAAAAA")
         val repoScreen=MainScreens().clickOnViewButton()
-        Assert.assertFalse( uiDevice.findObject(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/linearLayout")).waitForExists(wait))
+      Assert.assertFalse( uiDevice.findObject(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/linearLayout")).waitForExists(wait))
     }
     @Test
     fun serchForNotExistingRepo(){
         MainScreens().sendTextToFirstField("vladBurianAAAAAAAA")
         val repoScreen=MainScreens().clickOnSearchButton()
-        Assert.assertFalse( uiDevice.findObject(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/linearLayout")).waitForExists(wait))
+    Assert.assertFalse( uiDevice.findObject(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/linearLayout")).waitForExists(wait))
     }
-
-
-
-
-
-
-
-        //onData(withId(R.id.repoListView)).onChildView(withId(R.id.linearLayout)).perform(click())
-
-
-
-
-
-
 
 }

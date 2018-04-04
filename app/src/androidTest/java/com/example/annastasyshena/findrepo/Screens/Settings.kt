@@ -9,8 +9,7 @@ import org.junit.Before
  */
 open class Settings(){
     protected lateinit var  uiDevice: UiDevice
-    val wait=15000L
-    @Before
+   @Before
     fun intishilazed(){
         uiDevice= UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())}
 }
