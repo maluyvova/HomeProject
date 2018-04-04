@@ -13,7 +13,7 @@ import org.junit.Before
  */
  open class WebScreen{
     val texts:String="^\\D\\d*".toRegex().toString()
-    val wait=15000L
+    val wait=1500L
     protected val uiDevice:UiDevice= UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
     val urlBar= uiDevice.findObject(UiSelector().resourceId("com.android.chrome:id/url_bar"))
     val urlBar2=UiCollection(UiSelector().resourceId("com.android.chrome:id/url_bar"))
