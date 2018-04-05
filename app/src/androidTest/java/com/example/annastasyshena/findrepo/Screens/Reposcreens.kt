@@ -19,6 +19,7 @@ class Reposcreens:WebScreen() {
     private val errorMessage=uiDevice.findObject(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/snackbar_text"))
 
     fun getTextFromErrorMessage():String{
+        errorMessage.waitForExists(wait)
         return errorMessage.text
     }
 
