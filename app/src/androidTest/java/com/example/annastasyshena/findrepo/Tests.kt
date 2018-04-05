@@ -39,8 +39,8 @@ open class Tests:WebScreen(){
         repoScreen.waitUntilListInAView()
         repoScreen.clickOnTextInListView(1)
         val webScreen=WebScreen()
-        webScreen.waitForTextInUrlBar(texts)
-       val url= webScreen.getUrlText()
+        val urlbar=webScreen.waitForTextInUrlBar(texts)
+       val url= urlbar.text
         Assert.assertTrue(url.toLowerCase().contains("some"))
     }
     @Test
@@ -49,8 +49,8 @@ open class Tests:WebScreen(){
         val repoScreen=MainScreens().clickOnViewButton()
         repoScreen.clickOnTextInListView(0)
         val webScreen=WebScreen()
-        webScreen.waitForTextInUrlBar(texts)
-        val urlBar= uiDevice.findObject(UiSelector().resourceId("com.android.chrome:id/url_bar")).text
+        val urlbar=webScreen.waitForTextInUrlBar(texts)
+        val urlBar=urlbar.text
         Assert.assertTrue(urlBar.toLowerCase().contains("jack"))
     }
     @Test
