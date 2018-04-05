@@ -14,8 +14,14 @@ import org.hamcrest.CoreMatchers
  * Created by maluy on 3/31/18.
  */
 class Reposcreens:WebScreen() {
-    val elementsInSecondScreen=UiCollection(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/repoListView"))
-    val elementInSecondScreen=UiSelector().resourceId("com.example.annastasyshena.findrepo:id/linearLayout")
+    private val elementsInSecondScreen=UiCollection(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/repoListView"))
+    private val elementInSecondScreen=UiSelector().resourceId("com.example.annastasyshena.findrepo:id/linearLayout")
+    private val errorMessage=uiDevice.findObject(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/snackbar_text"))
+
+    fun getTextFromErrorMessage():String{
+        return errorMessage.text
+    }
+
     private fun textInListView(number:Int): DataInteraction {
         val text= Espresso.onData(CoreMatchers.anything()).
                 inAdapterView(ViewMatchers.withId(R.id.repoListView)).

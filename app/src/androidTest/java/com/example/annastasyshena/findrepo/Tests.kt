@@ -58,7 +58,9 @@ open class Tests:WebScreen(){
     fun searchForNotExistingUser(){
         MainScreens().sendTextToSecondField("vladBurianAAAAAAAA")
         val repoScreen=MainScreens().clickOnViewButton()
-      Assert.assertFalse( uiDevice.findObject(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/linearLayout")).waitForExists(wait))
+        val errorMessage=repoScreen.getTextFromErrorMessage()
+        Assert.assertEquals(errorMessage.toLowerCase(),"User not found :( Go back and try again!".toLowerCase())
+      //Assert.assertFalse( uiDevice.findObject(UiSelector().resourceId("com.example.annastasyshena.findrepo:id/linearLayout")).waitForExists(wait))
     }
     @Test
     fun serchForNotExistingRepo(){
