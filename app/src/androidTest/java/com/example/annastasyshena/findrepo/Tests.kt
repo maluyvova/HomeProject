@@ -45,13 +45,14 @@ open class Tests:WebScreen(){
     }
     @Test
     fun searchForSecondField(){
-        MainScreens().sendTextToSecondField("jack")
+        MainScreens().sendTextToSecondField("ret")
         val repoScreen=MainScreens().clickOnViewButton()
+        repoScreen.waitUntilListInAView()
         repoScreen.clickOnTextInListView(0)
         val webScreen=WebScreen()
         val urlbar=webScreen.waitForTextInUrlBar(texts)
         val urlBar=urlbar.text
-        Assert.assertTrue(urlBar.toLowerCase().contains("jack"))
+        Assert.assertTrue(urlBar.toLowerCase().contains("ret"))
     }
     @Test
     fun searchForNotExistingUser(){

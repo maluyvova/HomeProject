@@ -12,7 +12,7 @@ import java.util.regex.Pattern
  */
  open class WebScreen{
     val texts="^https:\\/\\/github.com.*".toRegex().toPattern()
-    val wait=15000L
+    val wait=10000L
         protected val uiDevice:UiDevice= UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         val urlBar= uiDevice.findObject(UiSelector().resourceId("com.android.chrome:id/url_bar"))
         val urlBar2=UiCollection(UiSelector().resourceId("com.android.chrome:id/url_bar"))
